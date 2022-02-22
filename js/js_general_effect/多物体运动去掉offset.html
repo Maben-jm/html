@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: yellow;
+                float: left;
+                margin: 10px;
+                font-size: 14px;
+                border: 1px solid red;
+            }
+
+            #div4 {
+                filter: alpha(opacity:30);
+                opacity: 0.3;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">变高</div>
+        <div id="div2">变宽</div>
+        <div id="div3">字体变大</div>
+        <div id="div4">颜色变化</div>
+    </body>
+    <script src="js/common.js"></script>
+    <script src="js/move.js"></script>
+    <script>
+        window.onload = function () {
+            var oDiv1 = document.getElementById("div1");
+            oDiv1.onmouseover = function () {
+                bufferingMotion(this, "height", 400);
+            };
+            oDiv1.onmouseout = function () {
+                bufferingMotion(this, "height", 100);
+            };
+
+            var oDiv2 = document.getElementById("div2");
+            oDiv2.onmouseover = function () {
+                bufferingMotion(this, "width", 400);
+            };
+            oDiv2.onmouseout = function () {
+                bufferingMotion(this, "width", 100);
+            };
+
+
+            var div3 = document.getElementById("div3");
+            div3.onmouseover = function () {
+                bufferingMotion(this, "font-size", 30);
+            };
+            div3.onmouseout = function () {
+                bufferingMotion(this, "font-size", 14);
+            };
+
+            var div4 = document.getElementById("div4");
+            div4.onmouseover = function () {
+                bufferingMotion(this, "opacity", 100);
+            };
+            div4.onmouseout = function () {
+                bufferingMotion(this, "opacity", 30);
+            };
+        };
+
+    </script>
+</html>
