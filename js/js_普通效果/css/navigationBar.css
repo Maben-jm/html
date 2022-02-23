@@ -1,0 +1,62 @@
+/* 设置基础项 */
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    color: #333333;
+}
+
+/* 容器底边框设置为红线 */
+.condition_wrapper {
+    border-bottom: 1px solid #cd0a00;
+    margin-bottom: 12px;
+}
+
+/* 清楚浮动 */
+.clear_fix {
+    zoom: 1
+}
+.clear_fix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/* 将li 横向排成一排 */
+.condition {
+    padding: 0 24px;
+    float: left;
+    margin-right: 10px;
+    line-height: 40px;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    font-size: 14px;
+    text-align: center;
+    color: #727272;
+    cursor: pointer;
+}
+
+/* 设置当前tab背景颜色和字体颜色 */
+.current_tab {
+    background-color: #cd0a00;
+    color: white;
+}
+
+
+/* 设置li中的【span数字编号】标签大小 */
+.circle_index {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    border-radius: 50%;
+}
+
+/* 设置li中的【span数字编号】字体和边框 */
+.circle_red {
+    color: #cd0a00;
+    border: 1px #cd0a00 solid;
+}

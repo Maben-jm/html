@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>横向菜单</title>
+        <link href="./css/navigationBar.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="divCard" style="padding: 20px 37px 30px">
+            <div class="list_cont dis_inp">
+                <!-- 横向菜单start-->
+                <div class="condition_wrapper">
+                    <ul class="clear_fix" style="list-style: none;">
+                        <input type="hidden" value="tab1" id="curr_tab"/>
+                        <li id="li1" class="condition current_tab" onclick="clickTabs('tab1')">
+                            <span id="span1" class="circle_index circle_white">1</span>&nbsp;基本信息
+                        </li>
+                        <li id="li2" class="condition" onclick="clickTabs('tab2')">
+                            <span id="span2" class="circle_index circle_red">2</span>&nbsp;安全测评情况
+                        </li>
+                        <li id="li3" class="condition" onclick="clickTabs('tab3')">
+                            <span id="span3" class="circle_index circle_red">3</span>&nbsp;服务器列表
+                        </li>
+                        <li id="li4" class="condition" onclick="clickTabs('tab4')">
+                            <span id="span4" class="circle_index circle_red">4</span>&nbsp;运维情况
+                        </li>
+                        <li id="li5" class="condition" onclick="clickTabs('tab5')">
+                            <span id="span5" class="circle_index circle_red">5</span>&nbsp;其他资料
+                        </li>
+                    </ul>
+                </div>
+                <!-- 横向菜单end-->
+                <!--  基本信息div***start -->
+                <div id="tab1" class="add_tab_show">
+    
+                </div>
+                <!--  基本信息div***end -->
+                <!-- 安全测评情况div**start-->
+                <div id="tab2" class="add_tab_none">
+    
+                </div>
+                <!-- 安全测评情况div**end-->
+                <!-- 服务器列表div**start-->
+                <div id="tab3" class="add_tab_none">
+    
+                </div>
+                <!-- 服务器列表div**end-->
+                <!-- 运维情况div**start-->
+                <div id="tab4" class="add_tab_none">
+    
+                </div>
+                <!-- 运维情况div**end-->
+                <!-- 其他资料div**start-->
+                <div id="tab5" class="add_tab_none">
+    
+                </div>
+                <!-- 其他资料div**end-->
+            </div>
+        </div>
+    </body>
+    <script>
+        function clickTabs(tab) {
+            $("#curr_tab").val(tab);
+            if (tab != "tab1") {
+                //判断基本信息表id是否已经保存
+            }
+            var tabs = ["tab1", "tab2", "tab3", 'tab4', 'tab5'];
+            var lis = ["li1", "li2", "li3", 'li4', 'li5'];
+            var spans = ["span1", "span2", "span3", 'span4', 'span5'];
+            for (var i = 0; i < tabs.length; i++) {
+                if (tabs[i] === tab) {
+                    document.getElementById(tabs[i]).style.display = "block";
+                    document.getElementById(lis[i]).className = "condition current_tab";
+                    document.getElementById(spans[i]).className = "circle_index circle_white";
+                } else {
+                    document.getElementById(tabs[i]).style.display = "none";
+                    document.getElementById(lis[i]).className = "condition";
+                    document.getElementById(spans[i]).className = "circle_index circle_red";
+                }
+            }
+        }
+    </script>
+</html>
