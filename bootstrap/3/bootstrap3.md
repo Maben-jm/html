@@ -12,7 +12,7 @@
     * [Bootstrap网格系统的工作原理](#bootstrap网格系统的工作原理)
     * [媒体查询](#媒体查询)
 
-# CSS学习
+# Bootstrap CSS学习
 
 ## 概览
 
@@ -176,4 +176,131 @@ Bootstrap提供了一套响应式、移动设备优先的流式网格系统，�
 * 预定义的网格类，比如【.row】和【.col-xs-4】，可用于快速创建网络布局。
 * 列通过内边距（padding）来创建列内容之间的间隙。该内边距是通过【.row】上的外边距（margin）取负，表示第一列和最后一列的行偏移。
 * 网络系统是通过横跨的十二个可用的列来创建的。例如：要创建三个相等的列，则使用三个【.col-xs-4】
+
+### 网络选项
+
+|              | 超小设备手机（<768px）         | 小型设备平板电脑（≥768px）     | 中型设备台式电脑（≥992px）     | 大型设备台式电脑（≥1200px）    |
+| :----------- | :----------------------------- | :----------------------------- | :----------------------------- | ------------------------------ |
+| 网格行为     | 一直是水平的                   | 以折叠开始，断点以上是水平的   | 以折叠开始，断点以上是水平的   | 以折叠开始，断点以上是水平的   |
+| 最大容器宽度 | None (auto)                    | 750px                          | 970px                          | 1170px                         |
+| Class 前缀   | **.col-xs-**                   | **.col-sm-**                   | **.col-md-**                   | **.col-lg-**                   |
+| 列数量和     | 12                             | 12                             | 12                             | 12                             |
+| 最大列宽     | Auto                           | 60px                           | 78px                           | 95px                           |
+| 间隙宽度     | 30px （一个列的每边分别 15px） | 30px （一个列的每边分别 15px） | 30px （一个列的每边分别 15px） | 30px （一个列的每边分别 15px） |
+| 可嵌套       | Yes                            | Yes                            | Yes                            | Yes                            |
+| 偏移量       | Yes                            | Yes                            | Yes                            | Yes                            |
+| 列排序       | Yes                            | Yes                            | Yes                            | Yes                            |
+
+### 基本网格结构
+
+```html
+<div class='container'>
+    <div class='row'>
+        <div class='col-*-*'>
+            ***
+        </div>
+        <div class='col-*-*'>
+            ***
+        </div>
+    </div>
+    <div class='row'>
+        ***
+    </div>
+</div>
+```
+
+### 偏移列
+
+偏移列是一个更专业的布局功能，它可以给列腾出更多的空间来。例如，**.col-xs-\*** 类不支持偏移，但是它们可以简单地通过使用一个空的单元格来实现该效果。
+
+为了在大屏幕显示器上使用偏移，请使用 **.col-md-offset-\*** 类。这些类会把一个列的左外边距（margin）增加 ***** 列，其中 ***** 范围是从 **1** 到 **11**。
+
+在下面的实例中，我们有 <div class="col-md-6">..</div>，我们将使用 **.col-md-offset-3** class 来居中这个 div。
+
+```html
+<span>偏移列使用（居中使用）</span>
+<div class="container" style="border: 1px solid;">
+    <div class="row" style="height: 25px;">
+        <div class="col-md-6 col-md-offset-3"></div>
+    </div>
+</div>
+```
+
+### 嵌套列
+
+要在内容中使用嵌套列，需要添加一个新的**.row**，并在一个已有的 **.col-md-\*** 列内添加一组 **.col-md-\*** 列。
+
+```html
+<span>嵌套列</span>
+<div class="container" style="border: 1px solid black;">
+    <div class="row">
+        <div class="col-md-3" style="height: 25px;background-color: gray;"></div>
+        <div class="col-md-9" style="background-color: green;">
+            <div class="row">
+                <div class="col-md-6" style="height: 25px;background-color: aqua;">嵌套列111</div>
+                <div class="col-md-2" style="height: 25px;background-color: brown;">嵌套列222</div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+### 列排序
+
+Bootstrap的列排序属性可以很好的控制列的显示顺序。
+
+标签有 **.col-md-push-\*** 和 **.col-md-pull-\*** 类；
+
+```html
+<span>列排序1</span>
+<div class="container">
+    <div class="row">
+        <p style="text-align: center;">排序前</p>
+        <div class="col-md-4" style="height: 25px;background-color: aqua;"></div>
+        <div class="col-md-8" style="height: 25px;background-color: greenyellow;"></div>
+    </div>
+    <div class="row">
+        <p style="text-align: center;">排序后</p>
+        <div class="col-md-4 col-md-push-8" style="height: 25px;background-color: aqua;"></div>
+        <div class="col-md-8 col-md-pull-4" style="height: 25px;background-color: green;"></div>
+    </div>
+</div>
+<span>列排序2</span>
+<div class="container">
+    <div class="row">
+        <div id="px1" class="col-md-4" style="height: 25px;background-color: aqua;"></div>
+        <div id="px2" class="col-md-8" style="height: 25px;background-color: green;"></div>
+    </div>
+</div>
+```
+
+```js
+function func1(){
+    var flag = false; 
+    setInterval(function(){
+        flag = !flag;
+        if(flag){
+            $('#px1').addClass('col-md-push-8');
+            $('#px2').addClass('col-md-pull-4');
+        }else{
+            $('#px1').removeClass('col-md-push-8');
+            $('#px2').removeClass('col-md-pull-4');
+        }
+    },3000);
+}
+```
+
+## Bootstrap排版
+
+Bootstrap 使用 Helvetica Neue、 Helvetica、 Arial 和 sans-serif 作为其默认的字体栈。
+
+使用 Bootstrap 的排版特性，可以创建标题、段落、列表及其他内联元素。
+
+### 内联子标题
+
+给一个标题加上副标题，可以使用<code> <small></code>或者添加<code>.small</code>样式类；
+
+```html
+
+```
 

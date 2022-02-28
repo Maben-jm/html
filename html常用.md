@@ -50,7 +50,7 @@ $('input[name="zt"]').each(function () {
 //取值
 var dmdjqk = $("#dmdjqk").val();
 //赋值  result["dmdjqk"]='1'
-$("#dmdjqk").find("option[value='"+result["dmdjqk"]+"']").attr("selected",true);
+$("#dmdjqk").val('123')
 ```
 
 # JS
