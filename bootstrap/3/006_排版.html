@@ -10,8 +10,117 @@
         <script src="./js/bootstrap.js"></script>
     </head>
     <body>
-        <div class="container">
-            
+        <p style="text-align: center;">*********内联子标题*********</p>
+        <div class="container" style="border: 1px solid red;">
+            <h1>我是标题1 h1. <small>我是副标题1 h1</small></h1>
+            <h2>我是标题2 h2. <small>我是副标题2 h2</small></h2>
+            <h3>我是标题3 h3. <small>我是副标题3 h3</small></h3>
+            <h4>我是标题4 h4. <small>我是副标题4 h4</small></h4>
+            <h5>我是标题5 h5. <small>我是副标题5 h5</small></h5>
+            <h6>我是标题6 h6. <small>我是副标题6 h6</small></h6>
+        </div>
+
+        <p style="text-align: center;">引导主体副本</p>
+        <div class="container" style="border: 1px solid red;">
+            <h2>这里是标题</h2>
+            <p class="lead">这里是标题解释段落，加上样式起强调作用。</p>
+        </div>
+
+        <p style="text-align: center;">强调标签</p>
+        <div class="container" style="border: 1px solid red;width: 500px;">
+            <h2>这里是标题2<small>small设置文本是父文本大小的85%，没有换行效果</small></h2>
+            <strong>strong是让文本加粗，没有换行效果</strong><br/>
+            <em>em是让文本变为斜体，没有换行效果</em><br><br>
+            <p class="text-left">向左对齐文本</p>
+            <p class="text-center">居中对齐文本</p>
+            <p class="text-right">向右对齐文本</p>
+            <p class="text-muted">本行内容是减弱的 text-muted</p>
+            <p class="text-primary">本行内容带有一个 primary class</p>
+            <p class="text-success">本行内容带有一个 success class</p>
+            <p class="text-info">本行内容带有一个 info class</p>
+            <p class="text-warning">本行内容带有一个 warning class</p>
+            <p class="text-danger">本行内容带有一个 danger class</p>
+            <p class="text-justify">本行内容带有一个 justify class，超过长度会自动换行123456789789456123123456789</p>
+        </div>
+
+        <p style="text-align: center;">缩写</p>
+        <div class="container" style="border: 1px solid red;">
+            <abbr title="World Wide Web">WWW</abbr><br>
+            <abbr title="World Wide Web" class="initialism">WWW</abbr>
+        </div>
+
+        <p style="text-align: center;">地址</p>
+        <div class="container" style="border: 1px solid red;">
+            <address>
+                <strong>Some Company, Inc.</strong><br>
+                007 street<br>
+                Some City, State XXXXX<br>
+                <abbr title="Phone">P:</abbr> (123) 456-7890
+              </address>
+              <address>
+                <strong>Full Name</strong><br>
+                <a href="mailto:#">mailto@somedomain.com</a>
+              </address>
+        </div>
+
+        <p style="text-align: center;">引用</p>
+        <div class="container" style="border: 1px solid red;">
+            <blockquote>
+                <p>
+                    这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。
+                </p>
+                </blockquote>
+                <blockquote>
+                    这是一个带有源标题的引用。
+                    <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                </blockquote>
+                <blockquote class="pull-right">
+                这是一个向右对齐的引用。
+                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+            </blockquote>
+        </div>
+
+        <p style="text-align: center;">列表</p>
+        <div class="container" style="border: 1px solid red;">
+            <h4>有序列表ol</h4>
+            <ol>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ol>
+            <h4>无序列表ul</h4>
+            <ul>
+                <li>item1</li>
+                <li>item2</li>
+                <li>item3</li>
+                <li>item4</li>
+            </ul>
+            <h4>未定义样式列表ul</h4>
+            <ul class="list-unstyled">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+            <h4>内联列表</h4>
+            <ul class="list-inline">
+                <li>item1</li>
+                <li>item2</li>
+                <li>item3</li>
+            </ul>
+            <h4>定义列表</h4>
+            <dl>
+                <dt>dt111</dt>
+                <dd>dd222</dd>
+            </dl>
+            <h4>水平的定义列表</h4>
+            <dl class="dl-horizontal">
+                <dt>dt111</dt>
+                <dd>dd111</dd>
+                <dt>dt222</dt>
+                <dd>dd222</dd>
+            </dl>
         </div>
     </body>
 </html>
