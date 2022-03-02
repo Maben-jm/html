@@ -52,6 +52,7 @@
     </div>
     <br>
     <div class="container" style="border: 1px solid gold;">
+        <!-- input框 -->
         <form class="form-horizontal" role="form">
             <div class="form-group">
                 <label for="username" class="col-sm-2 control-label">用户名</label>
@@ -68,46 +69,82 @@
             <div class="form-group">
                 <label for="t0" class="col-sm-2 control-label">datetime(没啥用)</label>
                 <div class="col-sm-10">
-                    <input type="datetime" name="t0" id="t0" class="form-control" >
+                    <input type="datetime" name="t0" id="t0" class="form-control">
                 </div>
             </div>
             <div class="form-group">
                 <label for="t1" class="col-sm-2 control-label">datetime-local（很难用，点击后不会自动隐藏）</label>
                 <div class="col-sm-10">
-                    <input type="datetime-local" name="t1" id="t1" class="form-control" >
+                    <input type="datetime-local" name="t1" id="t1" class="form-control">
                 </div>
             </div>
             <div class="form-group">
                 <label for="t2" class="col-sm-2 control-label">date</label>
                 <div class="col-sm-10">
-                    <input type="date" name="t2" id="t2" class="form-control" >
+                    <input type="date" name="t2" id="t2" class="form-control">
                 </div>
             </div>
             <div class="form-group">
                 <label for="t3" class="col-sm-2 control-label">month</label>
                 <div class="col-sm-10">
-                    <input type="month" name="t3" id="t3" class="form-control" >
+                    <input type="month" name="t3" id="t3" class="form-control">
                 </div>
             </div>
             <div class="form-group">
                 <label for="t4" class="col-sm-2 control-label">week</label>
                 <div class="col-sm-10">
-                    <input type="week" name="t4" id="t4" class="form-control" >
+                    <input type="week" name="t4" id="t4" class="form-control">
                 </div>
             </div>
             <div class="form-group">
                 <label for="t5" class="col-sm-2 control-label">search和普通输入差不多</label>
                 <div class="col-sm-10">
-                    <input type="search" name="t5" id="t5" class="form-control" >
+                    <input type="search" name="t5" id="t5" class="form-control">
+                </div>
+            </div>
+            <!-- 复选框 -->
+            <div class="form-group">
+                <label for="hobby" class="col-sm-2 control-label">爱好</label>
+                <div class="col-sm-10">
+                    <label class="checkbox-inline"><input type="checkbox" name="hobby" value="">篮球</label>
+                    <label class="checkbox-inline"><input type="checkbox" name="hobby" value="">足球</label>
+                </div>
+            </div>
+            <!-- 单选框 -->
+            <div class="form-group">
+                <label for="gender" class="col-sm-2 control-label">性别</label>
+                <div class="col-sm-10">
+                    <label class="radio-inline"><input type="radio" name="gender">男</label>
+                    <label class="radio-inline"><input type="radio" name="gender">女</label>
+                </div>
+            </div>
+            <!-- 下拉选项 -->
+            <div class="form-group">
+                <label for="birthplace" class="col-sm-2 control-label">出生地</label>
+                <div class="col-sm-10">
+                    <select name="birthplace" id="birthplace" class="form-control">
+                        <option value="">---请选择---</option>
+                        <option value="1">北京</option>
+                        <option value="2">上海</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox">请记住我
-                        </label>
-                    </div>
+                <label for="identify" class="col-sm-2 control-label">身份（下拉多选不好用）</label>
+                <div class="col-sm-10">
+                    <select name="identify" id="identify" class="form-control" multiple>
+                        <option value="">---请选择---</option>
+                        <option value="1">学生</option>
+                        <option value="2">成年人</option>
+                        <option value="3">男人</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 静态控件 -->
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">email@example.com</p>
                 </div>
             </div>
             <div class="form-group">

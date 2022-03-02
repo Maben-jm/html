@@ -711,3 +711,109 @@ Bootstrap 支持最常见的表单控件，主要是 *input、textarea、checkbo
 </div>
 ```
 
+#### 文本框（Textarea）
+
+```html
+<div class="form-group">
+    <label for="name">文本框</label>
+    <textarea class="form-control" rows="3"></textarea>
+</div>
+```
+
+#### 复选框（Checkbox）和单选框（Radio）
+
+复选框和单选按钮用于让用户从一系列预设置的选项中进行选择。
+
+- 当创建表单时，如果您想让用户从列表中选择若干个选项时，请使用 *checkbox*。如果您限制用户只能选择一个选项，请使用 *radio*。
+- 对一系列复选框和单选框使用 *.checkbox-inline* 或 *.radio-inline* class，控制它们显示在同一行上。
+
+```html
+<!-- 复选框 -->
+<div class="form-group">
+    <label for="hobby" class="col-sm-2 control-label">爱好</label>
+    <div class="col-sm-10">
+        <label class="checkbox-inline"><input type="checkbox" name="hobby" value="">篮球</label>
+        <label class="checkbox-inline"><input type="checkbox" name="hobby" value="">足球</label>
+    </div>
+</div>
+<!-- 单选框 -->
+<div class="form-group">
+    <label for="gender" class="col-sm-2 control-label">性别</label>
+    <div class="col-sm-10">
+        <label class="radio-inline"><input type="radio" name="gender">男</label>
+        <label class="radio-inline"><input type="radio" name="gender">女</label>
+    </div>
+</div>
+```
+
+#### 选择框（Select）
+
+当您想让用户从多个选项中进行选择，但是默认情况下只能选择一个选项时，则使用选择框。
+
+- 使用 <select> 展示列表选项，通常是那些用户很熟悉的选择列表，比如州或者数字。
+- 使用 *multiple="multiple"* 允许用户选择多个选项。
+
+```html
+<!-- 下拉选项 -->
+<div class="form-group">
+    <label for="birthplace" class="col-sm-2 control-label">出生地</label>
+    <div class="col-sm-10">
+        <select name="birthplace" id="birthplace" class="form-control">
+            <option value="">---请选择---</option>
+            <option value="1">北京</option>
+            <option value="2">上海</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="identify" class="col-sm-2 control-label">身份（下拉多选不好用）</label>
+    <div class="col-sm-10">
+        <select name="identify" id="identify" class="form-control" multiple>
+            <option value="">---请选择---</option>
+            <option value="1">学生</option>
+            <option value="2">成年人</option>
+            <option value="3">男人</option>
+        </select>
+    </div>
+</div>
+```
+
+#### 静态控件
+
+当您需要在一个水平表单内的表单标签后放置纯文本时，请在 <p> 上使用 class *.form-control-static*。
+
+```html
+<!-- 静态控件 -->
+<div class="form-group">
+    <label class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+        <p class="form-control-static">email@example.com</p>
+    </div>
+</div>
+```
+
+#### 控件状态
+
+1. 禁用的输入框 input
+
+   如果您想要禁用一个输入框 input，只需要简单地添加 disabled 属性，这不仅会禁用输入框，还会改变输入框的样式以及当鼠标的指针悬停在元素上时鼠标指针的样式。
+
+2. 禁用的字段集 fieldset
+   对 <fieldset> 添加 disabled 属性来禁用 <fieldset> 内的所有控件。
+
+3. 验证状态
+   Bootstrap 包含了错误、警告和成功消息的验证样式。只需要对父元素简单地添加适当的 class（.has-warning、 .has-error 或 .has-success）即可使用验证状态。
+
+#### 表单帮助文本
+
+Bootstrap 表单控件可以在输入框 input 上有一个块级帮助文本。为了添加一个占用整个宽度的内容块，请在 <input> 后使用 *.help-block*。
+
+```html
+<form role="form">
+  <span>帮助文本实例</span>
+  <input class="form-control" type="text" placeholder="">
+  <span class="help-block">一个较长的帮助文本块，超过一行，
+  需要扩展到下一行。本实例中的帮助文本总共有两行。</span>
+</form>
+```
+
