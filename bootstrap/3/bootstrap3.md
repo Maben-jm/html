@@ -817,3 +817,193 @@ Bootstrap 表单控件可以在输入框 input 上有一个块级帮助文本。
 </form>
 ```
 
+## Bootstrap按钮
+
+### 基础样式
+
+以下样式可用于<a>, <button>, 或 <input> 元素上：
+
+| 类           | 描述                                    |
+| :----------- | :-------------------------------------- |
+| .btn         | 为按钮添加基本样式                      |
+| .btn-default | 默认/标准按钮                           |
+| .btn-primary | 原始按钮样式（未被操作）                |
+| .btn-success | 表示成功的动作                          |
+| .btn-info    | 该样式可用于要弹出信息的按钮            |
+| .btn-warning | 表示需要谨慎操作的按钮                  |
+| .btn-danger  | 表示一个危险动作的按钮操作              |
+| .btn-link    | 让按钮看起来像个链接 (仍然保留按钮行为) |
+| .btn-lg      | 制作一个大按钮                          |
+| .btn-sm      | 制作一个小按钮                          |
+| .btn-xs      | 制作一个超小按钮                        |
+| .btn-block   | 块级按钮(拉伸至父元素100%的宽度)        |
+| .active      | 按钮被点击                              |
+| .disabled    | 禁用按钮                                |
+
+### 按钮大小
+
+下表列出了获得各种大小按钮的 class：
+
+| Class      | 描述                                         |
+| :--------- | :------------------------------------------- |
+| .btn-lg    | 这会让按钮看起来比较大。                     |
+| .btn-sm    | 这会让按钮看起来比较小。                     |
+| .btn-xs    | 这会让按钮看起来特别小。                     |
+| .btn-block | 这会创建块级的按钮，会横跨父元素的全部宽度。 |
+
+### 按钮状态
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <p>
+        <button type="button" class="btn btn-default btn-lg ">默认按钮</button>
+        <button type="button" class="btn btn-default btn-lg active">激活按钮</button>
+    </p>
+    <p>
+        <button type="button" class="btn btn-default btn-lg">默认按钮</button>
+        <button type="button" class="btn btn-default btn-lg" disabled="disabled">禁用按钮</button>
+    </p>
+</div>
+```
+
+### 按钮组
+
+> 在 div 中直接使用 .btn-group 可以创建按钮组：
+
+```html
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+```
+
+> 使用 .btn-group-lg|sm|xs 来控制按钮组的大小：
+
+```html
+<div class="btn-group btn-group-lg">
+    <button type="button" class="btn btn-primary">Apple</button>
+    <button type="button" class="btn btn-primary">Samsung</button>
+    <button type="button" class="btn btn-primary">Sony</button>
+</div>
+```
+
+> 如果要设置垂直方向的按钮可以通过 .btn-group-vertical 类来设置：
+
+```html
+<div class="btn-group-vertical">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+```
+
+> 自适应大小的按钮组,通过 .btn-group-justified 类
+
+```html
+<div class="btn-group btn-group-justified">
+    <a href="#" class="btn btn-primary">Apple</a>
+    <a href="#" class="btn btn-primary">Samsung</a>
+    <a href="#" class="btn btn-primary">Sony</a>
+</div>
+<!-- 如果是 <button> 元素, 你需要在外层使用 .btn-group 类来包裹 -->
+<div class="btn-group btn-group-justified">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Apple</button>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Samsung</button>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Sony</button>
+    </div>
+</div>
+```
+
+### 内嵌下拉菜单的按钮组
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Apple</button>
+        <button type="button" class="btn btn-primary">Samsung</button>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Sony <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Tablet</a></li>
+                <li><a href="#">Smartphone</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+```
+
+### 分割按钮
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">Sony</button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Tablet</a></li>
+            <li><a href="#">Smartphone</a></li>
+        </ul>
+    </div>
+</div>
+```
+
+## Bootstrap图片
+
+### 普通样式
+
+Bootstrap 提供了三个可对图片应用简单样式的 class：
+
+- *.img-rounded*：添加 *border-radius:6px* 来获得图片圆角。
+- *.img-circle*：添加 *border-radius:50%* 来让整个图片变成圆形。
+- *.img-thumbnail*：添加一些内边距（padding）和一个灰色的边框。
+
+### 响应式图片
+
+通过在 <img> 标签添加 .img-responsive 类来让图片支持响应式设计。 图片将很好地扩展到父元素。
+
+.img-responsive 类将 max-width: 100%; 和 height: auto; 样式应用在图片上
+
+# Bootstrap字体图标
+
+Bootstrap 捆绑了 200 多种字体格式的字形。首先让我们先来理解一下什么是字体图标。
+
+在 *fonts* 文件夹内可以找到字体图标，它包含了下列这些文件：
+
+- glyphicons-halflings-regular.eot
+- glyphicons-halflings-regular.svg
+- glyphicons-halflings-regular.ttf
+- glyphicons-halflings-regular.woff
+
+相关的 CSS 规则写在 *dist* 文件夹内的 css 文件夹内的 *bootstrap.css* 和 *bootstrap-min.css* 文件上。
+
+```html
+<!-- 定制字体图标(使用字体样式改变图标) -->
+<button type="button" class="btn btn-primary btn-lg">
+  <span class="glyphicon glyphicon-user"></span> User
+</button>
+<!-- 定制字体大小 -->
+<button type="button" class="btn btn-primary btn-lg" style="font-size: 60px">
+  <span class="glyphicon glyphicon-user"></span> User
+</button>
+<!-- 定制字体颜色 -->
+<button type="button" class="btn btn-primary btn-lg" style="color: rgb(212, 106, 64);">
+  <span class="glyphicon glyphicon-user"></span> User
+</button>
+<!-- 应用文本阴影（这个比较帅） -->
+<button type="button" class="btn btn-primary btn-lg" style="text-shadow: black 5px 3px 3px;">
+  <span class="glyphicon glyphicon-user"></span> User
+</button>
+```
+
+
+

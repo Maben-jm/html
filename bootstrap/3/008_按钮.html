@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap 表格</title>
+    <meta charset="utf-8">
+    <!-- 适应移动设备 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+</head>
+
+<body>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <!-- 标准的按钮 -->
+        <button type="button" class="btn btn-default">默认按钮</button>
+        <!-- 提供额外的视觉效果，标识一组按钮中的原始动作 -->
+        <button type="button" class="btn btn-primary">原始按钮</button>
+        <!-- 表示一个成功的或积极的动作 -->
+        <button type="button" class="btn btn-success">成功按钮</button>
+        <!-- 并不强调是一个按钮，看起来像一个链接，但同时保持按钮的行为 -->
+        <button type="button" class="btn btn-link">链接按钮</button>
+        <!-- 表示一个危险的或潜在的负面动作 -->
+        <button type="button" class="btn btn-danger">危险按钮</button>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <p>
+            <button type="button" class="btn btn-primary btn-lg">大的原始按钮</button>
+            <button type="button" class="btn btn-default btn-lg">大的按钮</button>
+        </p>
+        <p>
+            <button type="button" class="btn btn-primary btn-sm">小的原始按钮</button>
+            <button type="button" class="btn btn-default btn-sm">小的按钮</button>
+        </p>
+        <p>
+            <button type="button" class="btn btn-primary btn-xs">特别小的原始按钮</button>
+            <button type="button" class="btn btn-default btn-xs">特别小的按钮</button>
+        </p>
+        <p>
+            <button type="button" class="btn btn-primary btn-lg btn-block">块级的原始按钮</button>
+            <button type="button" class="btn btn-default btn-lg btn-block">块级的按钮</button>
+        </p>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <p>
+            <button type="button" class="btn btn-default btn-lg ">默认按钮</button>
+            <button type="button" class="btn btn-default btn-lg active">激活按钮</button>
+        </p>
+        <p>
+            <button type="button" class="btn btn-default btn-lg">默认按钮</button>
+            <button type="button" class="btn btn-default btn-lg" disabled="disabled">禁用按钮</button>
+        </p>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <button type="button" class="btn btn-primary">Sony</button>
+        </div>
+
+        <div class="btn-group btn-group-lg">
+            <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <button type="button" class="btn btn-primary">Sony</button>
+        </div>
+        <br>
+        <div class="btn-group-vertical">
+            <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <button type="button" class="btn btn-primary">Sony</button>
+        </div>
+
+        <br>
+        <div class="btn-group btn-group-justified">
+            <a href="#" class="btn btn-primary">Apple</a>
+            <a href="#" class="btn btn-primary">Samsung</a>
+            <a href="#" class="btn btn-primary">Sony</a>
+        </div>
+        <!-- 如果是 <button> 元素, 你需要在外层使用 .btn-group 类来包裹 -->
+        <div class="btn-group btn-group-justified">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary">Apple</button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary">Samsung</button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary">Sony</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Apple</button>
+            <button type="button" class="btn btn-primary">Samsung</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Sony <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Tablet</a></li>
+                    <li><a href="#">Smartphone</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Sony</button>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Tablet</a></li>
+                <li><a href="#">Smartphone</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
