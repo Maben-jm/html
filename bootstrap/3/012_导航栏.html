@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap 导航栏</title>
+    <meta charset="utf-8">
+    <!-- 适应移动设备 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+</head>
+
+<body>
+    <br>
+    <div class="container" style="border: 1px solid red;margin-top: 80px;">
+        <ul class="nav nav-tabs" id="u1">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <ul class="nav nav-pills" id="u2">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <ul class="nav nav-pills nav-stacked" id="u3">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">SVN</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">VB.Net</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Java <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Swing</a></li>
+                    <li><a href="#">jMeter</a></li>
+                    <li><a href="#">EJB</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">分离的链接</a></li>
+                </ul>
+            </li>
+            <li><a href="#">PHP</a></li>
+        </ul>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">菜鸟教程</a>
+                </div>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">提交</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">菜鸟教程</a>
+                </div>
+                <div>
+                    <p class="navbar-text">Runoob 用户登录</p>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">菜鸟教程</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <br>
+    <!-- 静态顶部 -->
+    <div class="container" style="border: 1px solid red;">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">静态顶部</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">iOS</a></li>
+                        <li><a href="#">SVN</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Java <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">jmeter</a></li>
+                                <li><a href="#">EJB</a></li>
+                                <li><a href="#">Jasper Report</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">分离的链接</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">另一个分离的链接</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- 动态顶部 -->
+    <!-- <div class="container" style="border: 1px solid red;">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">菜鸟教程</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav" id="u4">
+                        <li class="active"><a href="#">iOS</a></li>
+                        <li><a href="#">SVN</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Java <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">jmeter</a></li>
+                                <li><a href="#">EJB</a></li>
+                                <li><a href="#">Jasper Report</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">分离的链接</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">另一个分离的链接</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div> -->
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">菜鸟教程</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav" id="u5">
+                        <li class="active"><a href="#">iOS</a></li>
+                        <li><a href="#">SVN</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Java <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">jmeter</a></li>
+                                <li><a href="#">EJB</a></li>
+                                <li><a href="#">Jasper Report</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">分离的链接</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">另一个分离的链接</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+</body>
+<script>
+    Array.from($('#u1 li a')).forEach(element => {
+        element.onclick = function () {
+            console.log(element.textContent);
+            $('#u1 li.active').removeClass('active');
+            element.parentNode.className = 'active';
+        }
+    });
+    Array.from($('#u2 li a')).forEach(element => {
+        element.onclick = function () {
+            console.log(element.textContent);
+            $('#u2 li.active').removeClass('active');
+            element.parentNode.className = 'active';
+        }
+    });
+    Array.from($('#u3 li a')).forEach(element => {
+        element.onclick = function () {
+            console.log(element.textContent);
+            $('#u3 li.active').removeClass('active');
+            element.parentNode.className = 'active';
+        }
+    });
+    Array.from($('#u4 li a')).forEach(element => {
+        element.onclick = function () {
+            console.log(element.textContent);
+            $('#u4 li.active').removeClass('active');
+            element.parentNode.className = 'active';
+        }
+    });
+    Array.from($('#u5 li a')).forEach(element => {
+        element.onclick = function () {
+            console.log(element.textContent);
+            $('#u5 li.active').removeClass('active');
+            element.parentNode.className += ' active';
+        }
+    });
+</script>
+
+</html>

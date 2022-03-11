@@ -53,6 +53,20 @@ var dmdjqk = $("#dmdjqk").val();
 $("#dmdjqk").val('123')
 ```
 
+## ul中点击li样式转换
+
+```js
+Array.from($('#u1 li a')) .forEach(element => {
+        element.onclick=function(){
+            console.log(element.textContent);
+            $('#u1 li.active').removeClass('active');
+            element.parentNode.className += ' active';
+        }
+    });
+```
+
+
+
 # JS
 
 ## 时间戳转字符串

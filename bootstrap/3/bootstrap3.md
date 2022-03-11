@@ -959,7 +959,9 @@ Bootstrap 提供了三个可对图片应用简单样式的 class：
 
 .img-responsive 类将 max-width: 100%; 和 height: auto; 样式应用在图片上
 
-# Bootstrap字体图标
+# Bootstrap布局组件
+
+## Bootstrap字体图标
 
 Bootstrap 捆绑了 200 多种字体格式的字形。首先让我们先来理解一下什么是字体图标。
 
@@ -991,5 +993,697 @@ Bootstrap 捆绑了 200 多种字体格式的字形。首先让我们先来理�
 </button>
 ```
 
+## Bootstrap下拉菜单
 
+Bootstrap下拉菜单（DropDowns）是可切换的，是以列表格式显示链接的上下文菜单。
+
+### 基本下拉菜单
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="dropdown">
+        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+            主题<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">Java</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据通信/网络</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">分离的链接</a>
+            </li>
+        </ul>
+    </div>
+</div>
+```
+
+### 下拉框标题
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="dropdown">
+        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+            主题<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">Java</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据通信/网络</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">分离的链接</a>
+            </li>
+        </ul>
+    </div>
+</div>
+```
+
+### 向上弹出(dropup)
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="dropdown dropup">
+        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+            向上弹出<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">Java</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据通信/网络</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">分离的链接</a>
+            </li>
+        </ul>
+    </div>
+</div>
+```
+
+### 禁用项(disabled)
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="dropdown">
+        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+            主题<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">Java</a>
+            </li>
+            <li role="presentation" class="disabled">
+                <a role="menuitem" tabindex="-1" href="#">数据挖掘</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">数据通信/网络</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="dropdown-header">下拉菜单标题</li>
+            <li role="presentation">
+                <a role="menuitem" tabindex="-1" href="#">分离的链接</a>
+            </li>
+        </ul>
+    </div>
+</div>
+```
+
+## Bootstrap按钮组
+
+按钮组允许多个按钮被堆叠在同一行上。
+
+| Class                                       | 描述                                                         | 代码示例                                                     |
+| :------------------------------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| .btn-group                                  | 该 class 用于形成基本的按钮组。在 **.btn-group** 中放置一系列带有 class **.btn** 的按钮。 | `<div class="btn-group">  <button type="button" class="btn btn-default">Button1</button>   <button type="button" class="btn btn-default">Button2</button> </div>` |
+| .btn-toolbar                                | 该 class 有助于把几组 <div class="btn-group"> 结合到一个 <div class="btn-toolbar"> 中，一般获得更复杂的组件。 | `<div class="btn-toolbar" role="toolbar">  <div class="btn-group">...</div>  <div class="btn-group">...</div> </div>` |
+| .btn-group-lg, .btn-group-sm, .btn-group-xs | 这些 class 可应用到整个按钮组的大小调整，而不需要对每个按钮进行大小调整。 | `<div class="btn-group btn-group-lg">...</div> <div class="btn-group btn-group-sm">...</div> <div class="btn-group btn-group-xs">...</div>` |
+| .btn-group-vertical                         | 该 class 让一组按钮垂直堆叠显示，而不是水平堆叠显示。        | `<div class="btn-group-vertical">  ... </div>`               |
+
+## Bootstrap输入框组
+
+### 基本的输入框组
+
+```html
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">启动资金1</label>
+        <div class="col-sm-10">
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">.00</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">启动资金2</label>
+        <div class="col-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control">
+                <span class="input-group-addon">.00</span>
+            </div>
+        </div>
+    </div>
+</form>
+```
+
+### 复选框和单选插件
+
+```html
+<div style="padding: 100px 100px 10px;">
+    <form class="bs-example bs-example-form" role="form">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="checkbox"></span>
+                    <input type="text" class="form-control">
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+            <br>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio"></span>
+                    <input type="text" class="form-control">
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </form>
+</div>
+```
+
+### 按钮插件
+
+```html
+<div class="form-group">
+    <label class="col-sm-2 control-label">请输入关键字</label>
+    <div class="col-sm-10">
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div>
+    </div>
+</div>
+```
+
+### 带下拉菜单的按钮
+
+```html
+<div class="form-group">
+    <label class="col-sm-2 control-label">请输入关键字</label>
+    <div class="col-sm-10">
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+                    下拉菜单 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="#">功能</a>
+                    </li>
+                    <li>
+                        <a href="#">另一个功能</a>
+                    </li>
+                    <li>
+                        <a href="#">其他</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">分离的链接</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+    </div>
+</div>
+```
+
+## Bootstrap导航栏
+
+### 基础导航栏
+
+创建一个标签式的导航菜单：
+
+- 以一个带有 class **.nav** 的无序列表开始。
+- 添加 class **.nav-tabs**。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <ul class="nav nav-tabs" id="u1">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">PHP</a></li>
+    </ul>
+</div>
+```
+
+### 胶囊式导航菜单
+
+如果需要把标签改成胶囊的样式，只需要使用 class **.nav-pills** 代替 **.nav-tabs** 即可，其他的步骤与上面相同。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <ul class="nav nav-pills" id="u2">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">PHP</a></li>
+    </ul>
+</div>
+```
+
+### 垂直胶囊式导航菜单
+
+您可以在使用 class **.nav、.nav-pills** 的同时使用 class **.nav-stacked**，让胶囊垂直堆叠。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <ul class="nav nav-pills nav-stacked" id="u3">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">PHP</a></li>
+    </ul>
+</div>
+```
+
+### 禁用链接
+
+对每个 **.nav** class，如果添加了 **.disabled** class，则会创建一个灰色的链接，同时禁用了该链接的 **:hover** 状态；
+
+```html
+<ul class="nav nav-pills">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">SVN</a></li>
+    <li class="disabled"><a href="#">iOS（禁用链接）</a></li>
+    <li><a href="#">VB.Net</a></li>
+    <li><a href="#">Java</a></li>
+    <li><a href="#">PHP</a></li>
+</ul>
+```
+
+### 带下拉菜单的导航
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">SVN</a></li>
+        <li><a href="#">iOS</a></li>
+        <li><a href="#">VB.Net</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Java <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Swing</a></li>
+                <li><a href="#">jMeter</a></li>
+                <li><a href="#">EJB</a></li>
+                <li class="divider"></li>
+                <li><a href="#">分离的链接</a></li>
+            </ul>
+        </li>
+        <li><a href="#">PHP</a></li>
+    </ul>
+</div>
+```
+
+### 导航栏中的表单
+
+导航栏中的表单不是使用 [Bootstrap 表单](https://www.runoob.com/bootstrap/bootstrap-forms.html) 章节中所讲到的默认的 class，它是使用 **.navbar-form** class。这确保了表单适当的垂直对齐和在较窄的视口中折叠的行为。使用对齐方式选项（这将在组件对齐方式部分进行详细讲解）来决定导航栏中的内容放置在哪里。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid"> 
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">菜鸟教程</a>
+            </div>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">提交</button>
+            </form>
+        </div>
+    </nav>
+</div>
+```
+
+### 导航栏中的文本
+
+如果需要在导航中包含文本字符串，请使用 class **.navbar-text**。这通常与 <p> 标签一起使用，确保适当的前导和颜色。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">菜鸟教程</a>
+            </div>
+            <div>
+                <p class="navbar-text">Runoob 用户登录</p>
+            </div>
+        </div>
+    </nav>
+</div>
+```
+
+### 结合图标的导航链接
+
+如果您想在常规的导航栏导航组件内使用图标，那么请使用 class **glyphicon glyphicon-\*** 来设置图标.
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">菜鸟教程</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+```
+
+### 固定到顶部
+
+Bootstrap 导航栏可以动态定位。默认情况下，它是块级元素，它是基于在 HTML 中放置的位置定位的。通过一些帮助器类，您可以把它放置在页面的顶部或者底部，或者您可以让它成为随着页面一起滚动的静态导航栏。
+
+如果您想要让导航栏固定在页面的顶部，请向 **.navbar class** 添加 class **.navbar-fixed-top**。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">菜鸟教程</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav" id="u4">
+                    <li class="active"><a href="#">iOS</a></li>
+                    <li><a href="#">SVN</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Java <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">jmeter</a></li>
+                            <li><a href="#">EJB</a></li>
+                            <li><a href="#">Jasper Report</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">另一个分离的链接</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+```
+
+### 固定到底部
+
+如果您想要让导航栏固定在页面的底部，请向 **.navbar class** 添加 class **.navbar-fixed-bottom**。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">菜鸟教程</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav" id="u5">
+                    <li class="active"><a href="#">iOS</a></li>
+                    <li><a href="#">SVN</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Java <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">jmeter</a></li>
+                            <li><a href="#">EJB</a></li>
+                            <li><a href="#">Jasper Report</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">另一个分离的链接</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+```
+
+### 静态顶部
+
+如需创建能随着页面一起滚动的导航栏，请添加 **.navbar-static-top** class。该 class 不要求向 <body> 添加内边距（padding）。
+
+```html
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">静态顶部</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+```
+
+## Bootstrap分页
+
+分页（Pagination），是一种无序列表，Bootstrap 像处理其他界面元素一样处理分页。
+
+### 分页（Pagination）
+
+下表列出了 Bootstrap 提供的处理分页的 class。
+
+| Class                          | 描述                                                         | 示例代码                                                     |
+| :----------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| .pagination                    | 添加该 class 来在页面上显示分页。                            | `<ul class="pagination">  <li><a href="#">«</a></li>  <li><a href="#">1</a></li>  ....... </ul>` |
+| .disabled, .active             | 您可以自定义链接，通过使用 **.disabled** 来定义不可点击的链接，通过使用 **.active** 来指示当前的页面。 | `<ul class="pagination">  <li class="disabled"><a href="#">«</a></li>  <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>  ....... </ul>` |
+| .pagination-lg, .pagination-sm | 使用这些 class 来获取不同大小的项。                          | `<ul class="pagination pagination-lg">...</ul> <ul class="pagination">...</ul> <ul class="pagination pagination-sm">...</ul>` |
+
+```html
+<ul class="pagination">
+    <li><a href="#">&laquo;</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">&raquo;</a></li>
+</ul>
+```
+
+### 翻页
+
+如果您想要创建一个简单的分页链接为用户提供导航，可通过翻页来实现。与分页链接一样，翻页也是无序列表。默认情况下，链接是居中显示。下表列出了 Bootstrap 处理翻页的 class。
+
+| Class            | 描述                                                         | 示例代码                                                     |
+| :--------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| .pager           | 添加该 class 来获得翻页链接。                                | `<ul class="pager">  <li><a href="#">Previous</a></li>  <li><a href="#">Next</a></li> </ul>` |
+| .previous, .next | 使用 class **.previous** 把链接向左对齐，使用 **.next** 把链接向右对齐。 | `<ul class="pager">  <li class="previous"><a href="#">← Older</a></li>  <li class="next"><a href="#">Newer →</a></li> </ul>` |
+| .disabled        | 添加该 class 来设置对应按钮禁止使用。                        | `<ul class="pager">  <li class="previous disabled"><a href="#">← Older</a></li>  <li class="next"><a href="#">Newer →</a></li> </ul>` |
+
+## Bootstrap徽章
+
+徽章与标签相似，主要的区别在于徽章的边角更加圆滑。
+
+徽章（Badges）主要用于突出显示新的或未读的项。如需使用徽章，只需要把 **<span class="badge">** 添加到链接、Bootstrap 导航等这些元素上即可。
+
+### 基本使用
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <a href="#">Mailbox <span class="badge">50</span></a>
+</div>
+```
+
+### 结合导航使用
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <ul class="nav nav-pills" id="u1">
+        <li class="active">
+            <a href="#">首页
+                <span class="badge">42</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">简介</a>
+        </li>
+        <li>
+            <a href="#">消息
+                <span class="badge">3</span>
+            </a>
+        </li>
+    </ul>
+    <br>
+    <h4>列表导航中的激活状态</h4>
+    <ul class="nav nav-pills nav-stacked" style="max-width: 260px;"  id="u2">
+        <li class="active">
+            <a href="#">
+                <span class="badge pull-right">42</span>首页</a>
+        </li>
+        <li>
+            <a href="#">简介</a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="badge pull-right">3</span>消息
+            </a>
+        </li>
+    </ul>
+</div>
+```
+
+## Bootstrap缩略图
+
+### 基础用法
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="./img/2.jpg" alt="通用的占位符缩略图">
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="./img/2.jpg" alt="通用的占位符缩略图">
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="./img/2.jpg" alt="通用的占位符缩略图">
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src="./img/2.jpg" alt="通用的占位符缩略图">
+            </a>
+        </div>
+    </div>
+</div>
+```
+
+### 添加一些讲解
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="./img/2.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3>缩略图标签</h3>
+                    <p>一些示例文本。一些示例文本。</p>
+                    <p>
+                        <a href="#" class="btn btn-primary" role="button">
+                            按钮
+                        </a>
+                        <a href="#" class="btn btn-default" role="button">
+                            按钮
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="./img/2.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3>缩略图标签</h3>
+                    <p>一些示例文本。一些示例文本。</p>
+                    <p>
+                        <a href="#" class="btn btn-primary" role="button">
+                            按钮
+                        </a>
+                        <a href="#" class="btn btn-default" role="button">
+                            按钮
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="./img/2.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3>缩略图标签</h3>
+                    <p>一些示例文本。一些示例文本。</p>
+                    <p>
+                        <a href="#" class="btn btn-primary" role="button">
+                            按钮
+                        </a>
+                        <a href="#" class="btn btn-default" role="button">
+                            按钮
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="./img/2.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3>缩略图标签</h3>
+                    <p>一些示例文本。一些示例文本。</p>
+                    <p>
+                        <a href="#" class="btn btn-primary" role="button">
+                            按钮
+                        </a>
+                        <a href="#" class="btn btn-default" role="button">
+                            按钮
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
 
