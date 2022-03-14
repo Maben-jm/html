@@ -1687,3 +1687,623 @@ Bootstrap 导航栏可以动态定位。默认情况下，它是块级元素，�
 </div>
 ```
 
+## Bootstrap进度条
+
+### 基础进度条
+
+创建一个基本的进度条的步骤如下：
+
+- 添加一个带有 class **.progress** 的 <div>。
+- 接着，在上面的 <div> 内，添加一个带有 class **.progress-bar** 的空的 <div>。
+- 添加一个带有百分比表示的宽度的 style 属性，例如 style="width: 60%"; 表示进度条在 60% 的位置。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" 
+             aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+            <!-- sr-only：隐藏文本 -->
+            <span class="sr-only">40% 完成</span>
+        </div>
+    </div>
+</div>  
+```
+
+### 进度条基础样式
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+             aria-valuemax="100" style="width:40%">
+            40% Complete (success)
+        </div>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+             aria-valuemax="100" style="width:50%">
+            50% Complete (info)
+        </div>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+             aria-valuemax="100" style="width:60%">
+            60% Complete (warning)
+        </div>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+             aria-valuemax="100" style="width:70%">
+            70% Complete (danger)
+        </div>
+    </div>
+</div>
+```
+
+### 条纹进度条
+
+创建一个条纹的进度条的步骤如下：
+
+- 添加一个带有 class **.progress** 和 **.progress-striped** 的 <div>。
+- 接着，在上面的 <div> 内，添加一个带有 class **.progress-bar** 和 class **progress-bar-\*** 的空的 <div>。其中，* 可以是 **success、info、warning、danger**。
+- 添加一个带有百分比表示的宽度的 style 属性，例如 style="60%"; 表示进度条在 60% 的位置。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="progress progress-striped">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+             aria-valuemax="100" style="width: 90%;">
+            <span>90% 完成（成功）</span>
+        </div>
+    </div>
+</div>
+```
+
+### 动态进度条
+
+```html
+<div class="progress progress-striped active">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+         aria-valuemax="100" style="width: 40%;">
+        <span>40% 完成</span>
+    </div>
+</div>
+```
+
+### 堆叠进度条
+
+```html
+<div class="container" style="border: 1px solid red;padding-top: 5px;">
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar"
+             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+             style="width: 40%;">
+            <span >40% 完成</span>
+        </div>
+        <div class="progress-bar progress-bar-info" role="progressbar"
+             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+             style="width: 30%;">
+            <span >30% 完成（信息）</span>
+        </div>
+        <div class="progress-bar progress-bar-warning" role="progressbar"
+             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+             style="width: 30%;">
+            <span >30% 完成（警告）</span>
+        </div>
+    </div>
+</div>
+```
+
+## Bootstrap多媒体对象
+
+ Bootstrap 中的多媒体对象（Media Object）包含：图像、视频、音频等。 多媒体对象的样式可用于创建各种类型的组件（比如：博客评论），我们可以在组件中使用图文混排，图像可以左对齐或者右对齐。媒体对象可以用更少的代码来实现媒体对象与文字的混排。
+
+### 基本使用
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <!-- 左对齐 -->
+    <div class="media">
+        <div class="media-left">
+            <img src="./img/2.jpg" class="media-object" style="width:60px">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">左对齐</h4>
+            <p>这是一些示例文本...</p>
+        </div>
+    </div>
+
+    <!-- 右对齐 -->
+    <div class="media">
+        <div class="media-body">
+            <h4 class="media-heading">左对齐</h4>
+            <p>这是一些示例文本...</p>
+        </div>
+        <div class="media-right">
+            <img src="./img/2.jpg" class="media-object" style="width:60px">
+        </div>
+    </div>
+</div>
+```
+
+### 置顶、居中、底部
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <!-- 置顶 -->
+    <div class="media">
+        <div class="media-left media-top">
+            <img src="./img/2.jpg" class="media-object" style="width:60px">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">置顶</h4>
+            <p>这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...</p>
+        </div>
+    </div>
+
+    <!-- 居中对齐 -->
+    <div class="media">
+        <div class="media-left media-middle">
+            <img src="./img/2.jpg" class="media-object" style="width:60px">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">居中</h4>
+            <p>这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...</p>
+        </div>
+    </div>
+
+    <!-- 置底 -->
+    <div class="media">
+        <div class="media-left media-bottom">
+            <img src="./img/2.jpg" class="media-object" style="width:60px">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">置底</h4>
+            <p>这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...这是一些示例文本...</p>
+        </div>
+    </div>
+</div>
+```
+
+## Bootstrap列表组
+
+列表组件用于以列表形式呈现复杂的和自定义的内容。创建一个基本的列表组的步骤如下：
+
+- 向元素 <ul> 添加 class **.list-group**。
+- 向 <li> 添加 class **.list-group-item**。
+
+### 基础演示
+
+```html
+<div class="container" style="border: 1px solid red;padding-top: 5px;">
+    <ul class="list-group">
+        <li class="list-group-item">免费域名注册</li>
+        <li class="list-group-item">免费 Window 空间托管</li>
+        <li class="list-group-item">图像的数量</li>
+        <li class="list-group-item">24*7 支持</li>
+        <li class="list-group-item">每年更新成本</li>
+    </ul>
+</div>
+```
+
+### 添加徽章
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <ul class="list-group">
+        <li class="list-group-item">免费域名注册</li>
+        <li class="list-group-item">免费 Window 空间托管</li>
+        <li class="list-group-item">图像的数量</li>
+        <li class="list-group-item">
+            24*7 支持
+            <span class="badge">新</span>
+        </li>
+        <li class="list-group-item">每年更新成本</li>
+        <li class="list-group-item">
+            <span class="badge">新</span>
+            折扣优惠
+        </li>
+    </ul>
+</div>
+```
+
+### 添加链接
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <ul class="list-group" id="u1">
+        <a href="#" class="list-group-item active">
+            免费域名注册
+        </a>
+        <a href="#" class="list-group-item">24*7 支持</a>
+        <a href="#" class="list-group-item">免费 Window 空间托管</a>
+        <a href="#" class="list-group-item">图像的数量</a>
+        <a href="#" class="list-group-item">每年更新成本</a>
+    </ul>
+</div>
+```
+
+```js
+Array.from($('#u1 a')).forEach(element => {
+    element.onclick = function () {
+        console.log(element.textContent);
+        $('#u1 a.active').removeClass('active');
+        element.className += ' active';
+    }
+});
+```
+
+## Bootstrap面板（Panels）
+
+### 基础用法
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div>
+</div>
+```
+
+### 面板标题
+
+可以通过以下两种方式来添加面板标题：
+
+- 使用 **.panel-heading** class 可以很简单地向面板添加标题容器。
+- 使用带有 **.panel-title** class 的 <h1>-<h6> 来添加预定义样式的标题。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            不带 title 的面板标题
+        </div>
+        <div class="panel-body">
+            面板内容
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                带有 title 的面板标题
+            </h3>
+        </div>
+        <div class="panel-body">
+            面板内容
+        </div>
+    </div>
+</div>
+```
+
+### 面板脚注
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            带有 title 的面板标题
+        </h3>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+            这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板这是一个基本的面板
+        </div>
+        <div class="panel-footer">面板脚注</div>
+    </div>
+</div>
+```
+
+### 带语境色彩的面板
+
+使用语境状态类 **panel-primary、panel-success、panel-info、panel-warning、panel-danger**，来设置带语境色彩的面板，实例如下：
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div>
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            这是一个基本的面板
+        </div>
+    </div>
+</div>
+```
+
+# Bootstrap插件
+
+所有的插件依赖于 jQuery。所以必须在插件文件之前引用 jQuery。
+
+## 模态框(Modal)插件
+
+模态框（Modal）是覆盖在父窗体上的子窗体。通常，目的是显示来自一个单独的源的内容，可以在不离开父窗体的情况下有一些互动。子窗体可提供信息、交互等。
+
+### 基础使用
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <h2>创建模态框（Modal）</h2>
+    <!-- 按钮触发模态框 -->
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        开始演示模态框
+    </button>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        模态框（Modal）标题
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    在这里添加一些文本
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+```
+
+### 选项
+
+有一些选项可以用来定制模态窗口（Modal Window）的外观和感观，它们是通过 data 属性或 JavaScript 来传递的。下表列出了这些选项：
+
+| 选项名称 | 类型/默认值                               | Data 属性名称 | 描述                                                         |
+| :------- | :---------------------------------------- | :------------ | :----------------------------------------------------------- |
+| backdrop | boolean 或 string 'static' *默认值：true* | data-backdrop | 指定一个静态的背景，当用户点击模态框外部时不会关闭模态框。   |
+| keyboard | boolean *默认值：true*                    | data-keyboard | 当按下 escape 键时关闭模态框，设置为 false 时则按键无效。    |
+| show     | boolean *默认值：true*                    | data-show     | 当初始化时显示模态框。                                       |
+| remote   | path *默认值：false*                      | data-remote   | 使用 jQuery *.load* 方法，为模态框的主体注入内容。如果添加了一个带有有效 URL 的 href，则会加载其中的内容。如下面的实例所示：`<a data-toggle="modal" href="remote.html" data-target="#modal" rel="noopener noreferrer">请点击我</a>` |
+
+### 方法
+
+下面是一些可与 modal() 一起使用的有用的方法。
+
+| 方法                         | 描述                                           | 实例                                          |
+| :--------------------------- | :--------------------------------------------- | :-------------------------------------------- |
+| **Options:** .modal(options) | 把内容作为模态框激活。接受一个可选的选项对象。 | `$('#identifier').modal({ keyboard: false })` |
+| **Toggle:** .modal('toggle') | 手动切换模态框。                               | `$('#identifier').modal('toggle')`            |
+| **Show:** .modal('show')     | 手动打开模态框。                               | `$('#identifier').modal('show')`              |
+| **Hide:** .modal('hide')     | 手动隐藏模态框。                               | `$('#identifier').modal('hide')`              |
+
+### 事件
+
+下表列出了模态框中要用到事件。这些事件可在函数中当钩子使用。
+
+| 事件            | 描述                                                  | 实例                                                         |
+| :-------------- | :---------------------------------------------------- | :----------------------------------------------------------- |
+| show.bs.modal   | 在调用 show 方法后触发。                              | `$('#identifier').on('show.bs.modal', function () {  // 执行一些动作... })` |
+| shown.bs.modal  | 当模态框对用户可见时触发（将等待 CSS 过渡效果完成）。 | `$('#identifier').on('shown.bs.modal', function () {  // 执行一些动作... })` |
+| hide.bs.modal   | 当调用 hide 实例方法时触发。                          | `$('#identifier').on('hide.bs.modal', function () {  // 执行一些动作... })` |
+| hidden.bs.modal | 当模态框完全对用户隐藏时触发。                        | `$('#identifier').on('hidden.bs.modal', function () {  // 执行一些动作... })` |
+
+> 示例
+
+```js
+$(function() {
+    $('#myModal').on('hide.bs.modal',
+    function() {
+        alert('嘿，我听说您喜欢模态框...');
+    })
+});
+```
+
+## 滚动监听（Scrollspy）插件
+
+### 用法
+
+您可以向顶部导航添加滚动监听行为：
+
+- 通过 data 属性：向您想要监听的元素（通常是 body）添加<code>data-spy="scroll"</code>。然后添加带有 Bootstrap.nav组件的父元素的 ID 或 class 的属性data-target。为了它能正常工作，您必须确保页面主体中有匹配您所要监听链接的 ID 的元素存在。
+
+  ```html
+  <body data-spy="scroll" data-target=".navbar-example">
+  ...
+  <div class="navbar-example">
+      <ul class="nav nav-tabs">
+          ...
+      </ul>
+  </div>
+  ...
+  </body>
+  ```
+
+- 通过 JavaScript：您可以通过 JavaScript 调用滚动监听，选取要监听的元素，然后调用<code>.scrollspy()</code>函数：
+
+  ```js
+  $('body').scrollspy({ target: '.navbar-example' })
+  ```
+
+### 基础示例
+
+```html
+<div class="container">
+    <nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">教程名称</a>
+            </div>
+            <div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+                <ul class="nav navbar-nav">
+                    <li><a href="#ios">iOS</a></li>
+                    <li><a href="#svn">SVN</a></li>
+                    <li class="dropdown">
+                        <a href="#" id="navbarDrop1" class="dropdown-toggle" data-toggle="dropdown">Java
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop1">
+                            <li><a href="#jmeter" tabindex="-1">jmeter</a></li>
+                            <li><a href="#ejb" tabindex="-1">ejb</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#spring" tabindex="-1">spring</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div data-spy="scroll" data-target="#navbar-example" data-offset="0"
+         style="height:200px;overflow:auto; position: relative;">
+        <h4 id="ios">iOS</h4>
+        <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+            TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
+        </p>
+        <h4 id="svn">SVN</h4>
+        <p>Apache Subversion，通常缩写为 SVN，是一款开源的版本控制系统软件。Subversion 由 CollabNet 公司在 2000 年创建。但是现在它已经发展为 Apache Software
+            Foundation 的一个项目，因此拥有丰富的开发人员和用户社区。
+        </p>
+        <h4 id="jmeter">jMeter</h4>
+        <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。
+        </p>
+        <h4 id="ejb">EJB</h4>
+        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+        </p>
+        <h4 id="spring">Spring</h4>
+        <p>Spring 框架是一个开源的 Java 平台，为快速开发功能强大的 Java 应用程序提供了完备的基础设施支持。
+        </p>
+        <p>Spring 框架最初是由 Rod Johnson 编写的，在 2003 年 6 月首次发布于 Apache 2.0 许可证下。
+        </p>
+    </div>
+</div>
+```
+
+### 刷新方法
+
+> 当DOM中元素发生变化时，需要调用刷新方法来更新DOM。
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <nav id="myScrollspy" class="navbar navbar-default navbar-static" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse"
+                        data-target=".bs-js-navbar-scrollspy">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">教程名称</a>
+            </div>
+            <div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#ios">iOS</a></li>
+                    <li><a href="#svn">SVN</a></li>
+                    <li class="dropdown">
+                        <a href="#" id="navbarDrop1" class="dropdown-toggle" data-toggle="dropdown">Java
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDrop1">
+                            <li><a href="#jmeter" tabindex="-1">jmeter</a></li>
+                            <li><a href="#ejb" tabindex="-1">ejb</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#spring" tabindex="-1">spring</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div data-spy="scroll" data-target="#myScrollspy" data-offset="0"
+         style="height:200px;overflow:auto; position: relative;">
+        <div class="section">
+            <h4 id="ios">iOS<small><a href="#" onclick="removeSection(this);">
+                &times; 删除该部分</a></small>
+            </h4>
+            <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+        </div>
+        <div class="section">
+            <h4 id="svn">SVN<small></small></h4>
+            <p>Apache Subversion，通常缩写为 SVN，是一款开源的版本控制系统软件。Subversion 由 CollabNet 公司在 2000 年创建。但是现在它已经发展为 Apache
+                Software Foundation 的一个项目，因此拥有丰富的开发人员和用户社区。</p>
+        </div>
+        <div class="section">
+            <h4 id="jmeter">jMeter<small><a href="#" onclick="removeSection(this);">
+                &times; 删除该部分</a></small>
+            </h4>
+            <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+        </div>
+        <div class="section">
+            <h4 id="ejb">EJB</h4>
+            <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。</p>
+        </div>
+        <div class="section">
+            <h4 id="spring">Spring</h4>
+            <p>Spring 框架是一个开源的 Java 平台，为快速开发功能强大的 Java 应用程序提供了完备的基础设施支持。</p>
+            <p>Spring 框架最初是由 Rod Johnson 编写的，在 2003 年 6 月首次发布于 Apache 2.0 许可证下。</p>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            removeSection = function (e) {
+                $(e).parents(".section").remove();
+                $('[data-spy="scroll"]').each(function () {
+                    var $spy = $(this).scrollspy('refresh')
+                    });
+            }
+            $("#myScrollspy").scrollspy();
+        });
+    </script>
+</div>
+```
+

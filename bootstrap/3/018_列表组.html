@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap 列表组</title>
+    <meta charset="utf-8">
+    <!-- 适应移动设备 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+</head>
+
+<body>
+    <br>
+    <div class="container" style="border: 1px solid red;padding-top: 5px;">
+        <ul class="list-group">
+            <li class="list-group-item">免费域名注册</li>
+            <li class="list-group-item">免费 Window 空间托管</li>
+            <li class="list-group-item">图像的数量</li>
+            <li class="list-group-item">24*7 支持</li>
+            <li class="list-group-item">每年更新成本</li>
+        </ul>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <ul class="list-group">
+            <li class="list-group-item">免费域名注册</li>
+            <li class="list-group-item">免费 Window 空间托管</li>
+            <li class="list-group-item">图像的数量</li>
+            <li class="list-group-item">
+                24*7 支持
+                <span class="badge">新</span>
+            </li>
+            <li class="list-group-item">每年更新成本</li>
+            <li class="list-group-item">
+                <span class="badge">新</span>
+                折扣优惠
+            </li>
+        </ul>
+    </div>
+
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <ul class="list-group" id="u1">
+            <a href="#" class="list-group-item active">
+                免费域名注册
+            </a>
+            <a href="#" class="list-group-item">24*7 支持</a>
+            <a href="#" class="list-group-item">免费 Window 空间托管</a>
+            <a href="#" class="list-group-item">图像的数量</a>
+            <a href="#" class="list-group-item">每年更新成本</a>
+        </ul>
+    </div>
+</body>
+<script>
+    Array.from($('#u1 a')).forEach(element => {
+        element.onclick = function () {
+            console.log(element.textContent);
+            $('#u1 a.active').removeClass('active');
+            element.className += ' active';
+        }
+    });
+</script>
+
+</html>
