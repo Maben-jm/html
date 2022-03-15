@@ -2307,3 +2307,247 @@ $(function() {
 </div>
 ```
 
+## 标签页（Tab）
+
+### 基础用法
+
+可以通过以下两种方式启用标签页：
+
+* 通过 data 属性：您需要添加 data-toggle="tab" 或 data-toggle="pill" 到锚文本链接中。
+
+```html
+<ul class="nav nav-tabs">
+    <li><a href="#identifier" data-toggle="tab">Home</a></li>
+    ...
+</ul>
+```
+
+* 通过 JavaScript：您可以使用 Javascript 来启用标签页
+
+```js
+$('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+```
+
+> 下面的实例演示了以不同的方式来激活各个标签页：
+
+```js
+// 通过名称选取标签页
+$('#myTab a[href="#profile"]').tab('show')
+
+// 选取第一个标签页
+$('#myTab a:first').tab('show')
+
+// 选取最后一个标签页
+$('#myTab a:last').tab('show')
+
+// 选取第三个标签页（从 0 开始索引）
+$('#myTab li:eq(2) a').tab('show')
+```
+
+### 淡入淡出效果
+
+如果需要为标签页设置淡入淡出效果，请添加 **.fade** 到每个 **.tab-pane** 后面。第一个标签页必须添加 **.in** 类，以便淡入显示初始内容。
+
+```html
+<div class="tab-content">
+    <div class="tab-pane fade in active" id="home">...</div>
+    <div class="tab-pane fade" id="svn">...</div>
+    <div class="tab-pane fade" id="ios">...</div>
+    <div class="tab-pane fade" id="java">...</div>
+</div>
+```
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active">
+            <a href="#home" data-toggle="tab">
+                菜鸟教程
+            </a>
+        </li>
+        <li><a href="#ios" data-toggle="tab">iOS</a></li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Java
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                <li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>
+                <li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="home">
+            <p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+        </div>
+        <div class="tab-pane fade" id="ios">
+            <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+        </div>
+        <div class="tab-pane fade" id="jmeter">
+            <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+        </div>
+        <div class="tab-pane fade" id="ejb">
+            <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+            </p>
+        </div>
+    </div>
+</div>
+```
+
+### 事件
+
+| 事件         | 描述                                                         | 实例                                                         |
+| :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| show.bs.tab  | 该事件在标签页显示时触发，但是必须在新标签页被显示之前。分别使用 **event.target** 和 **event.relatedTarget** 来定位到激活的标签页和前一个激活的标签页。 | `$('a[data-toggle="tab"]').on('show.bs.tab', function (e) {  e.target // 激活的标签页  e.relatedTarget // 前一个激活的标签页 })` |
+| shown.bs.tab | 该事件在标签页显示时触发，但是必须在某个标签页已经显示之后。分别使用 **event.target** 和 **event.relatedTarget** 来定位到激活的标签页和前一个激活的标签页。 | `$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {  e.target // 激活的标签页  e.relatedTarget // 前一个激活的标签页 })` |
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <p class="active-tab"><strong>激活的标签页</strong>：<span></span></p>
+    <p class="previous-tab"><strong>前一个激活的标签页</strong>：<span></span></p>
+    <hr>
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">
+            菜鸟教程</a></li>
+        <li><a href="#ios" data-toggle="tab">iOS</a></li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">
+                Java <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                <li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>
+                <li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="home">
+            <p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+        </div>
+        <div class="tab-pane fade" id="ios">
+            <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+        </div>
+        <div class="tab-pane fade" id="jmeter">
+            <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+        </div>
+        <div class="tab-pane fade" id="ejb">
+            <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+            </p>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                // 获取已激活的标签页的名称
+                var activeTab = $(e.target).text();
+                // 获取前一个激活的标签页的名称
+                var previousTab = $(e.relatedTarget).text();
+                $(".active-tab span").html(activeTab);
+                $(".previous-tab span").html(previousTab);
+            });
+        });
+    </script>
+</div>
+```
+
+## 提示工具
+
+提示工具（Tooltip）插件不像之前所讨论的下拉菜单及其他插件那样，它不是纯 CSS 插件。如需使用该插件，您必须使用 jquery 激活它（读取 javascript）。使用下面的脚本来启用页面中的所有的提示工具（tooltip）：
+
+```js
+$(function () { $("[data-toggle='tooltip']").tooltip(); });
+```
+
+### 用法
+
+* 通过 data 属性：如需添加一个提示工具（tooltip），只需向一个锚标签添加 data-toggle="tooltip" 即可。锚的 title 即为提示工具（tooltip）的文本。默认情况下，插件把提示工具（tooltip）设置在顶部。
+
+```html
+<a href="#" data-toggle="tooltip" title="Example tooltip">请悬停在我的上面</a>
+```
+
+* 通过 JavaScript：通过 JavaScript 触发提示工具（tooltip）
+
+```js
+$('#identifier').tooltip(options)
+```
+
+### 方法
+
+| 方法                             | 描述                          | 实例                               |
+| :------------------------------- | :---------------------------- | :--------------------------------- |
+| **Options:** .tooltip(options)   | 向元素集合附加提示工具句柄。  | `$().tooltip(options)`             |
+| **Toggle:** .tooltip('toggle')   | 切换显示/隐藏元素的提示工具。 | `$('#element').tooltip('toggle')`  |
+| **Show:** .tooltip('show')       | 显示元素的提示工具。          | `$('#element').tooltip('show')`    |
+| **Hide:** .tooltip('hide')       | 隐藏元素的提示工具。          | `$('#element').tooltip('hide')`    |
+| **Destroy:** .tooltip('destroy') | 隐藏并销毁元素的提示工具。    | `$('#element').tooltip('destroy')` |
+
+### 事件
+
+| 事件              | 描述                                                         | 实例                                                         |
+| :---------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| show.bs.tooltip   | 当调用 show 实例方法时立即触发该事件。                       | `$('#myTooltip').on('show.bs.tooltip', function () {  // 执行一些动作... })` |
+| shown.bs.tooltip  | 当提示工具对用户可见时触发该事件（将等待 CSS 过渡效果完成）。 | `$('#myTooltip').on('shown.bs.tooltip', function () {  // 执行一些动作... })` |
+| hide.bs.tooltip   | 当调用 hide 实例方法时立即触发该事件。                       | `$('#myTooltip').on('hide.bs.tooltip', function () {  // 执行一些动作... })` |
+| hidden.bs.tooltip | 当提示工具对用户隐藏时触发该事件（将等待 CSS 过渡效果完成）。 | `$('#myTooltip').on('hidden.bs.tooltip', function () {  // 执行一些动作... })` |
+
+### 示例
+
+```html
+<div class="container" style="border: 1px solid red;">
+    <h4>提示工具（Tooltip）插件 - 锚</h4>
+    这是一个 <a href="#" class="tooltip-test" data-toggle="tooltip" title="默认的 Tooltip">
+    默认的 Tooltip
+    </a>.
+    这是一个 <a href="#" class="tooltip-test" data-toggle="tooltip" data-placement="left" title="左侧的 Tooltip">
+    左侧的 Tooltip
+    </a>.
+    这是一个 <a href="#" data-toggle="tooltip" data-placement="top" title="顶部的 Tooltip">
+    顶部的 Tooltip
+    </a>.
+    这是一个 <a href="#" data-toggle="tooltip" data-placement="bottom" title="底部的 Tooltip">
+    底部的 Tooltip
+    </a>.
+    这是一个 <a href="#" data-toggle="tooltip" data-placement="right" title="右侧的 Tooltip">
+    右侧的 Tooltip
+    </a>
+
+    <br>
+
+    <h4>提示工具（Tooltip）插件 - 按钮</h4>
+    <button id="t1" type="button" class="btn btn-default" data-toggle="tooltip" title="默认的 Tooltip">
+        JS->无效的Tooltip
+    </button>
+    <button id="t2" type="button" class="btn btn-default" data-toggle="tooltip" title="默认的 Tooltip">
+        默认的 Tooltip
+    </button>
+    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="左侧的 Tooltip">
+        左侧的 Tooltip
+    </button>
+    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="顶部的 Tooltip">
+        顶部的 Tooltip
+    </button>
+    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="底部的 Tooltip">
+        底部的 Tooltip
+    </button>
+    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="右侧的 Tooltip">
+        右侧的 Tooltip
+    </button>
+</div>
+<script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+    $(function () { $('#t1').tooltip('destroy'); });
+    $(function () {
+        $('#t2').on('show.bs.tooltip', function () {
+            alert("Alert message on show");
+        })
+    });
+</script>
+```
+
+## 弹出框（Popover）
+
