@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap 提示工具</title>
+    <meta charset="utf-8">
+    <!-- 适应移动设备 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <h4>提示工具（Tooltip）插件 - 锚</h4>
+        这是一个 <a href="#" class="tooltip-test" data-toggle="tooltip" title="默认的 Tooltip">
+            默认的 Tooltip
+        </a>.
+        这是一个 <a href="#" class="tooltip-test" data-toggle="tooltip" data-placement="left" title="左侧的 Tooltip">
+            左侧的 Tooltip
+        </a>.
+        这是一个 <a href="#" data-toggle="tooltip" data-placement="top" title="顶部的 Tooltip">
+            顶部的 Tooltip
+        </a>.
+        这是一个 <a href="#" data-toggle="tooltip" data-placement="bottom" title="底部的 Tooltip">
+            底部的 Tooltip
+        </a>.
+        这是一个 <a href="#" data-toggle="tooltip" data-placement="right" title="右侧的 Tooltip">
+            右侧的 Tooltip
+        </a>
+
+        <br>
+
+        <h4>提示工具（Tooltip）插件 - 按钮</h4>
+        <button id="t1" type="button" class="btn btn-default" data-toggle="tooltip" title="默认的 Tooltip">
+            JS->无效的Tooltip
+        </button>
+        <button id="t2" type="button" class="btn btn-default" data-toggle="tooltip" title="默认的 Tooltip">
+            默认的 Tooltip
+        </button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="左侧的 Tooltip">
+            左侧的 Tooltip
+        </button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="顶部的 Tooltip">
+            顶部的 Tooltip
+        </button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="底部的 Tooltip">
+            底部的 Tooltip
+        </button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="右侧的 Tooltip">
+            右侧的 Tooltip
+        </button>
+    </div>
+</body>
+<script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+    $(function () { $('#t1').tooltip('destroy'); });
+    $(function () {
+        $('#t2').on('show.bs.tooltip', function () {
+            alert("Alert message on show");
+        })
+    });
+</script>
+
+</html>
