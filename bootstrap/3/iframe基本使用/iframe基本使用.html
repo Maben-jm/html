@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本使用</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            overflow: hidden
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        #leftdiv {
+            width: 200px;
+            float: left;
+            height: 100%;
+            margin-top: -2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:100%;height:100%;position:absolute;left:0px;top:0px;">
+        <div style="height:88px;width:100%;position:absolute;left:0px;top:0px;background-color: yellow;">
+            <iframe src="./top.html" name="topFrame" id="topFrame" scrolling="no" frameborder="no" border="0"
+                title="topFrame"></iframe>
+        </div>
+        <div style="width:100%;position:absolute;left:0px;top:88px;right:0px;bottom:0px;background-color: aqua;">
+            <div id="leftdiv" style="background-color: #999999;">
+                <iframe src="./left.html" name="leftFrame" id="leftFrame" frameborder="no" border="0"
+                    title="leftFrame"></iframe>
+            </div>
+            <div id="rightdiv" style="background-color:greenyellow">
+                <iframe src="#" name="rightFrame" id="rightFrame" frameborder="no" border="0" title="rightFrame"
+                    style="overflow:hidden;"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+</script>
+</html>

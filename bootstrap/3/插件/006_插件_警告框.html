@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap 警告框</title>
+    <meta charset="utf-8">
+    <!-- 适应移动设备 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</head>
+
+<body>
+    <br>
+    <div class="container" style="border: 1px solid red;">
+        <button id="btn1" type="button" class="btn btn-default" title="Popover title">
+            弹出
+        </button>
+        <button id="btn2" type="button" class="btn btn-default" title="Popover title">
+            关闭
+        </button>
+        <div id="myAlert" class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>成功！</strong>结果是成功的。
+        </div>
+        <div id="myAlert2" class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>失败！</strong>结果是失败的。
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $('#btn1').on('click', function () {
+            $("#myAlert").alert();
+        });
+        $('#btn2').on('click', function () {
+            $("#myAlert").alert('close');
+        });
+    });
+</script>
+
+</html>
