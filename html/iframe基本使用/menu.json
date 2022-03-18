@@ -7,6 +7,7 @@
 			{
 				"title": "篮球新闻",
 				"url": "./right_篮球新闻.html",
+				"count":5,
 				"son": [
 					{
 						"title": "男篮新闻",
