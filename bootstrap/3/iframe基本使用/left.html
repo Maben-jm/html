@@ -16,97 +16,123 @@
 			}
 			
 			body {
-				overflow: hidden
-			}
-			.menuSon a{
-				padding-left: 35px;
+				overflow: hidden;
 			}
 		</style>
 	</head>
 
 	<body class="leftBody">
 		<ul class="list-group" id="menu">
-			<a href="javascript:;" onclick="show_context(this,'./right_体育新闻.html')" class="list-group-item active">
-				<span class="glyphicon glyphicon-chevron-right">&nbsp;</span>体育新闻<span class="badge">99+</span>
-			</a>
-			<ul class="list-group menuSon" style="display: none;">
-				<a href="javascript:;" onclick="show_context(this,'./right_篮球新闻.html')" class="list-group-item ">
-					<span class="glyphicon glyphicon-chevron-right">&nbsp;</span>篮球新闻
-				</a>
-				<a href="javascript:;" onclick="show_context(this,'./right_足球新闻.html')" class="list-group-item ">
-					<span class="glyphicon glyphicon-chevron-right">&nbsp;</span>足球新闻
-				</a>
-			</ul>
-			<a href="javascript:;" onclick="show_context(this,'./right_娱乐新闻.html')" class="list-group-item ">
-				<span class="glyphicon glyphicon-chevron-right">&nbsp;</span>娱乐新闻<span class="badge">99+</span>
-			</a>
-			<a href="javascript:;" onclick="show_context(this,'./right_政治新闻.html')" class="list-group-item">
-				<span class="glyphicon glyphicon-chevron-right">&nbsp;</span>政治新闻
-			</a>
-			<a href="javascript:;" onclick="show_context(this,'./right_财经新闻.html')" class="list-group-item">
-				<span class="glyphicon glyphicon-chevron-right">&nbsp;</span>财经新闻
-			</a>
 		</ul>
 	</body>
 	<script>
+		/**
+		 * 调整左侧菜单
+		 */
 		function changeMenuClass(element) {
 			//重定选中状态
 			$('#menu a.active').removeClass('active');
 			element.className += ' active';
-			
+
 			//重定向下箭头
 			var dws = $('.glyphicon-chevron-down');
-			if (dws && dws.length>0) {
+			if(dws && dws.length > 0) {
 				$(dws).addClass('glyphicon-chevron-right');
 				$(dws).removeClass('glyphicon-chevron-down');
 			}
-			
-			
-			//处理点击子集
-			$('#menu .menuSon').css('display','none');
+
+			//查看父级
+			var fatherId = '';
+			$('#menu .menuSon').css('display', 'none');
 			var parents = $(element).parent();
-			if(parents && parents.length>0){
+			while(parents && parents.length > 0 && fatherId != 'menu') {
 				var parent = parents[0];
 				var tagName = parent.tagName;
-				if (tagName==='UL') {
-					$(parent).css('display','block');
+				if(tagName === 'UL') {
+					$(parent).css('display', 'block');
 				}
 				//子集上层需要是下箭头
 				var prevs = parents.prev();
-				if(prevs && prevs.length>0){
+				if(prevs && prevs.length > 0) {
 					var pr = prevs[0];
 					var sp = $(pr).children('span')[0];
 					$(sp).removeClass('glyphicon-chevron-right');
 					$(sp).addClass('glyphicon-chevron-down')
 				}
-			}
-			
-		}
 
+				//判断循环使用
+				fatherId = $(parent).attr('id');
+				parents = $(parent).parent();
+
+			}
+
+			//查看子集
+			var next = $(element).next();
+			if(next && next.length > 0) {
+				var nt = next[0];
+				var tagName = nt.tagName;
+				if(tagName === 'UL') {
+					//说明他有子目录-展开
+					$(nt).css('display', 'block');
+					//把箭头改为向下
+					var sp = $(element).children('span')[0];
+					$(sp).removeClass('glyphicon-chevron-right');
+					$(sp).addClass('glyphicon-chevron-down')
+				}
+			}
+		}
+		/**
+		 * 展示右侧iframe，并调整左侧菜单
+		 */
 		function show_context(obj, url) {
 			//切换ul样式
 			changeMenuClass(obj);
 			//显示右侧iframe
 			var iframecontext = parent.document.getElementById("rightFrame");
 			iframecontext.src = url;
-			//看有没有子目录
-			var next = $(obj).next();
-			if (next && next.length>0) {
-				var nt = next[0];
-				var tagName = nt.tagName;
-				if (tagName==='UL') {
-					//说明他有子目录-展开
-					$(nt).css('display','block');
-					//把箭头改为向下
-					var sp = $(obj).children('span')[0];
-					$(sp).removeClass('glyphicon-chevron-right');
-					$(sp).addClass('glyphicon-chevron-down')
-				}
-			}
 		}
 
+		/**
+		 * 递归获取一级菜单全数据
+		 */
+		function getRow(json, leftPx) {
+			var count = json['count'];
+			if(!count) {
+				count = '';
+			}
+			var row = '';
+			row += "<a href='javascript:;' onclick='show_context(this,\"" + json['url'] + "\")' class='list-group-item active'>";
+			row += "	<span class='glyphicon glyphicon-chevron-right' style='margin-left:" + leftPx + "px'>&nbsp;</span>" + json['title'] + "<span class='badge'>" + count + "</span>";
+			row += "</a>";
+			var son = json['son'];
+			if(son.length > 0) {
+				row += "<ul class='list-group menuSon' style='display: none;'>";
+				$.each(son, function(i, sonJson) {
+					row += getRow(sonJson, leftPx + 15);
+				});
+				row += "</ul>";
+			}
+			return row;
+		}
+
+		/**
+		 *初始化菜单
+		 */
 		$(function() {
-			$('#menu a:first').click();
+			//加载json数据
+			$.getJSON('menu.json', function(data) {
+				var mHtml = '';
+				$.each(data, function(i, json) {
+					mHtml += "<dd>";
+					mHtml += getRow(json, 0);
+					mHtml += "</dd>";
+				});
+				$('#menu').append(mHtml);
+
+				//模拟点击
+				$('#menu a:first').click();
+			});
+
 		});
 	</script>
 
